@@ -1,19 +1,22 @@
 <div class="todo-container">
     <div class="form-container">
-        <form>
+        <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
             <div class="form-container__form-group">
                 <label for="task" class="form-container--label-style">Task name</label>
-                <input type="text" id="task" class="form-container--input-style-text"/>
+                <input type="text" id="task" class="form-container--input-style-text" formControlName="task"/>
             </div>
             <div class="form-container__form-group">
                 <label for="date" class="form-container--label-style">Date</label>
-                <input type="text" id="date" class="form-container--input-style-text"/>
+                <input type="text" id="date" class="form-container--input-style-text" formControlName="date"/>
             </div>
             <div class="form-container__form-group">
                 <label for="Important" class="form-container--label-style">Important note ?</label>
-                <input type="checkbox" id="Important" class="form-container--input-checkbox-color"/>
+                <input type="checkbox" id="Important" class="form-container--input-checkbox-color" formControlName="important"/>
             </div>
+            <button class="form-container__button">Add Task</button>
         </form>
     </div>
-    <app-todo-list></app-todo-list>
+    <div class="todo-container__items-list">
+        <app-todo-list></app-todo-list>
+    </div>
 </div>

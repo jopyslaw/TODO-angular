@@ -1,15 +1,24 @@
 @use '../../shared/style.scss' as *;
+@use '../../../scss/variables' as *;
 
 .todo-container {
     @extend %display-center;
     margin-top: 20px;
     margin-bottom: 20px;
     justify-content: space-around;
+
+    &__items-list{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 70%;
+    }
 }
 
 .form-container {
     @extend %display-center;
     color: white;
+    width: 30%;
 
     &__form-group {
         @extend %display-center;
@@ -33,5 +42,20 @@
 
     &--input-checkbox-color {
         background-color: aqua;
+    }
+
+    &__button {
+        background-color: $button-color-background;
+        border-radius: 10px;
+        color: white;
+        width: 80px;
+        height: 40px;
+        padding: 3px;
+        cursor: pointer;
+        transition-duration: 0.4s;
+    }
+
+    &__button:hover {
+        background-color: $button-color-background-hover;
     }
 }

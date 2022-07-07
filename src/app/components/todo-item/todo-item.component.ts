@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Task } from 'src/app/interfaces/Task.interface';
 
 @Component({
@@ -8,10 +8,18 @@ import { Task } from 'src/app/interfaces/Task.interface';
 })
 export class TodoItemComponent implements OnInit {
   @Input() task!: Task;
+  @Output() deleteEmitter: EventEmitter<Task> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  onDelete(task: Task) {
+    this.deleteEmitter.emit(task);
+  }
+
+  onEdit() {
+
+  }
 }

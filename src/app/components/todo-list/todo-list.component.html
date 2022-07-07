@@ -1,5 +1,5 @@
 <div class="list-container">
     <ul class="list-container__items">
-        <app-todo-item></app-todo-item>
+        <app-todo-item *ngFor="let task of taskList" [task]="task" (deleteEmitter)="deleteItem($event)"></app-todo-item>
     </ul>
 </div>
