@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: rgb(9,0,170);
+    background: linear-gradient(90deg, rgba(9,0,170,1) 0%, rgba(0,0,195,1) 0%, rgba(0,212,255,1) 100%);
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
+}
