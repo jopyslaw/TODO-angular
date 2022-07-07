@@ -1,0 +1,9 @@
+@use '../../shared/style.scss' as *;
+
+.list-container {
+    @extend %display-center;
+
+    &__items {
+        list-style-type: none;
+    }
+}
