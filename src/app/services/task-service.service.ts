@@ -30,8 +30,9 @@ export class TaskServiceService {
   }
 
   deleteTask(id?: string) {
-    this.isUpdated.next(true);
-    return this.http.delete(`https://todo-angular-f6450-default-rtdb.firebaseio.com/tasks.json/{id}`);
+    return this.http.delete(`https://todo-angular-f6450-default-rtdb.firebaseio.com/tasks.json`).pipe(tap(() => {
+      this.isUpdated.next(true);
+    }));
   }
 
   getTask(id: string) {

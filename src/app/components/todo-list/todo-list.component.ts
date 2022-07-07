@@ -30,10 +30,10 @@ export class TodoListComponent implements OnInit, OnDestroy {
     })
   }
 
-  deleteItem(task: Task) {
-    this.taskSerivce.deleteTask(task.id).subscribe(response => {
+  deleteAll() {
+    this.taskSerivce.deleteTask().subscribe(response => {
       console.log(response);
-    });
+    })
   }
 
   ngOnDestroy(): void {

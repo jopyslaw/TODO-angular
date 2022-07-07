@@ -1,5 +1,6 @@
 <div class="list-container">
+    <button (click)="deleteAll()">Delete All OF them</button>
     <ul class="list-container__items">
-        <app-todo-item *ngFor="let task of taskList" [task]="task" (deleteEmitter)="deleteItem($event)"></app-todo-item>
+        <app-todo-item *ngFor="let task of taskList" [task]="task" ></app-todo-item>
     </ul>
 </div>
