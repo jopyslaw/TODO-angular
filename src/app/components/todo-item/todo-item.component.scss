@@ -16,4 +16,12 @@
     &--bold-text {
         font-weight: bold;
     }
+
+    &--important-true {
+        border: 3px solid #ff00a6;
+    }
+
+    &--important-false {
+        border: 2px solid white;
+    }
 }

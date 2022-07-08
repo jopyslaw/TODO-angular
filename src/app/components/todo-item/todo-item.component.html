@@ -1,5 +1,5 @@
 <li class="list-element">
-    <div class="list-element__container">
+    <div class="list-element__container" [ngClass]="task.important === true ? 'list-element--important-true' : 'list-element--important-false'">
         <p> <span class="list-element--bold-text">Task name:</span> {{ task.taskname }} </p>
         <p> <span class="list-element--bold-text">Date:</span> {{ task.date }} </p>
         <p> <span class="list-element--bold-text">Important:</span> {{ task.important }} </p>
