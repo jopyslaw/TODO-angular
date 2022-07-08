@@ -13,9 +13,14 @@
                 <label for="Important" class="form-container--label-style">Important note ?</label>
                 <input type="checkbox" id="Important" class="form-container--input-checkbox-color" formControlName="important"/>
             </div>
-            <button class="form-container__button">Add Task</button>
+            <div class="form-container__button-group">
+                <button class="form-container__button" [disabled]="!taskForm.valid">Add Task</button>
+            </div>
         </form>
     </div>
+    <span *ngIf="!taskForm.valid" class="form-container__warning-block">
+        Provide a valid data for inputs fields to continue
+    </span>
     <div class="todo-container__items-list">
         <app-todo-list></app-todo-list>
     </div>

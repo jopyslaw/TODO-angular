@@ -1,6 +1,12 @@
+<hr class="line">
 <div class="list-container">
-    <button (click)="deleteAll()">Delete All OF them</button>
-    <ul class="list-container__items">
-        <app-todo-item *ngFor="let task of taskList" [task]="task" (deleteEmitter)="deleteOneTask($event)"></app-todo-item>
-    </ul>
+    <div class="lds-ring" *ngIf="listLoading"><div></div><div></div><div></div><div></div></div>
+    <div class="list-container__loading-data" *ngIf="!listLoading">
+        <div class="list-container__button">
+            <button (click)="deleteAll()" class="list-container--button-style">Delete all tasks</button>
+        </div>
+        <ul class="list-container__items">
+            <app-todo-item *ngFor="let task of taskList" [task]="task" (deleteEmitter)="deleteOneTask($event)"></app-todo-item>
+        </ul>
+    </div>
 </div>

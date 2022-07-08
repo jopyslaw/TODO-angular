@@ -1,8 +1,8 @@
 <li class="list-element">
     <div class="list-element__container">
-        <p> Name: {{ task.taskname }} </p>
-        <p> Date: {{ task.date }} </p>
-        <p> Important: {{ task.important }} </p>
+        <p> <span class="list-element--bold-text">Task name:</span> {{ task.taskname }} </p>
+        <p> <span class="list-element--bold-text">Date:</span> {{ task.date }} </p>
+        <p> <span class="list-element--bold-text">Important:</span> {{ task.important }} </p>
         <div class="list-element__buttons-container">
             <button (click)="onEdit()">Edit</button>
             <button (click)="onDelete(task)">Delete</button>

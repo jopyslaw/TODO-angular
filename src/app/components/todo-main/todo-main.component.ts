@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TaskServiceService } from 'src/app/services/task-service.service';
 import { Task } from 'src/app/interfaces/Task.interface';
 import { TitleStrategy } from '@angular/router';
@@ -17,18 +17,20 @@ export class TodoMainComponent implements OnInit {
 
   ngOnInit(): void {
     this.taskForm = new FormGroup({
-      'task': new FormControl(null),
-      'date': new FormControl(null),
+      'task': new FormControl(null, Validators.required),
+      'date': new FormControl(null, Validators.required),
       'important': new FormControl(null)
     })
   }
 
   onSubmit() {
-    console.log(this.taskForm);
+    if(!this.taskForm.valid){
+      return;
+    }
     const newTask: Task = {
       taskname: this.taskForm.get('task')?.value,
       date: this.taskForm.get('date')?.value,
-      important: this.taskForm.get('important')?.value
+      important: this.taskForm.get('important')?.value === true ? true : false
     }
     this.taskService.addTask(newTask).subscribe(response => {
       console.log(response);
@@ -36,7 +38,7 @@ export class TodoMainComponent implements OnInit {
       console.log(error)
       this.error = true;
     })
-    //this.taskForm.reset();
+    this.taskForm.reset();
   }
 
 }

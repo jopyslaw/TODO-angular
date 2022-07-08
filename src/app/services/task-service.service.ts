@@ -46,6 +46,8 @@ export class TaskServiceService {
   }
 
   editTask(newTask: Task) {
-    return this.http.put(`https://todo-angular-f6450-default-rtdb.firebaseio.com/tasks/${newTask.id}.json`, newTask);
+    return this.http.put(`https://todo-angular-f6450-default-rtdb.firebaseio.com/tasks/${newTask.id}.json`, newTask).pipe(tap( () => {
+      this.isUpdated.next(true);
+    }));
   }
 }

@@ -1,19 +1,24 @@
 <div class="edit">
-    <div class="edit__form">
+    <div class="form-container">
         <form [formGroup]="editTaskForm" (ngSubmit)="onSubmit()">
-            <div class="edit__form-group">
-                <label for="task">Task name</label>
-                <input type="text" id="task" formControlName="task">
+            <div class="form-container__form-group">
+                <label for="task" class="form-container--label-text">Task name</label>
+                <input type="text" id="task" formControlName="task" class="form-container--input-style-text">
             </div>
-            <div class="edit__form-group">
-                <label for="date">Date</label>
-                <input type="text" id="date" formControlName="date">
+            <div class="form-container__form-group">
+                <label for="date" class="form-container--label-text">Date</label>
+                <input type="text" id="date" formControlName="date" class="form-container--input-style-text">
             </div>
-            <div class="edit__form-group">
-                <label for="important">Is it important?</label>
+            <div class="form-container__form-group">
+                <label for="important" class="form-container--label-text">Is it important?</label>
                 <input type="checkbox" id="important" formControlName="important">
             </div>
-            <button>Edit Task</button>
+            <div class="form-container__button">
+                <button class="form-container--button-style" [disabled]="!editTaskForm.valid">Edit Task</button>
+            </div>
         </form>
+        <span class="form-container--warning-block" *ngIf="!editTaskForm.valid">
+            Provide valid data for inputs fields to continue
+        </span>
     </div>
 </div>

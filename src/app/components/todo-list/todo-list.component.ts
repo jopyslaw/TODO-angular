@@ -11,6 +11,7 @@ import { TaskServiceService } from 'src/app/services/task-service.service';
 export class TodoListComponent implements OnInit, OnDestroy {
   taskList!: Task[];
   listSubscription!: Subscription;
+  listLoading: boolean = false;
 
   constructor(private taskSerivce: TaskServiceService) { }
 
@@ -25,7 +26,9 @@ export class TodoListComponent implements OnInit, OnDestroy {
   }
 
   getTasks() {
+    this.listLoading = true;
     this.taskSerivce.getTasks().subscribe(response => {
+      this.listLoading = false;
       this.taskList = response;
     })
   }

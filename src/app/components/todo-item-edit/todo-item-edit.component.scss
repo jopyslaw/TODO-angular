@@ -1,0 +1,73 @@
+@use '../../shared/style.scss' as *;
+@use '../../../scss/variables' as *;
+
+.edit {
+    @extend %display-center;
+}
+
+.form-container {
+    margin-top: 20px;
+    color: white;
+    @extend %display-center;
+    flex-direction: column;
+
+    &__form {
+        @extend %display-center;
+        color: white;
+    }
+
+    &__form-group {
+        @extend %display-center;
+        flex-direction: column;
+        margin: 10px;
+    }
+
+    &--input-style-text {
+        width: 100%;
+        padding: 6px 10px;
+        margin: 4px 0;
+        border: none;
+        border-bottom: 2px solid black;
+        color: white;
+        background-color: transparent;
+    }
+
+    &--input-style-text:focus {
+        border: 3px solid #555;
+    }
+
+    &__button {
+        @extend %display-center;
+    }
+
+    &--button-style {
+        background-color: $button-color-background;
+        border-radius: 10px;
+        color: white;
+        width: 80px;
+        height: 40px;
+        padding: 3px;
+        cursor: pointer;
+        transition-duration: 0.4s;
+    }
+
+    &--button-style:hover {
+        background-color: $button-color-background-hover;
+    }
+
+    &--button-style:disabled {
+        background-color: gray;
+        cursor: not-allowed;
+    }  
+
+    &--warning-block {
+        text-align: center;
+        color: black;
+        width: 90%;
+        border-radius: 10px;
+        padding: 10px;
+        background-color: rgba(255, 255, 255, 1);
+        margin-top: 10px;
+        border: 2px solid red;
+    }
+}
