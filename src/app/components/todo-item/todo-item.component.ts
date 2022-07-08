@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Task } from 'src/app/interfaces/Task.interface';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-todo-item',
@@ -10,7 +11,7 @@ export class TodoItemComponent implements OnInit {
   @Input() task!: Task;
   @Output() deleteEmitter: EventEmitter<Task> = new EventEmitter();
 
-  constructor() { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
   }
@@ -20,6 +21,6 @@ export class TodoItemComponent implements OnInit {
   }
 
   onEdit() {
-
+    this.router.navigate(['edit', this.task.id], { relativeTo: this.route });
   }
 }

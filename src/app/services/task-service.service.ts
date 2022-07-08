@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Task } from '../interfaces/Task.interface';
-import { map, Subject, tap } from 'rxjs';
+import { filter, map, Subject, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -29,12 +29,23 @@ export class TaskServiceService {
     }));
   }
 
-  deleteTask(id?: string) {
+  deleteAllTasks() {
     return this.http.delete(`https://todo-angular-f6450-default-rtdb.firebaseio.com/tasks.json`).pipe(tap(() => {
       this.isUpdated.next(true);
     }));
   }
 
+  deleteTask(id?: string) {
+    return this.http.delete(`https://todo-angular-f6450-default-rtdb.firebaseio.com/tasks/${id}.json`).pipe(tap(()=> {
+      this.isUpdated.next(true);
+    }))
+  }
+
   getTask(id: string) {
+    return this.http.get<Task>(`https://todo-angular-f6450-default-rtdb.firebaseio.com/tasks/${id}.json`);
+  }
+
+  editTask(newTask: Task) {
+    return this.http.put(`https://todo-angular-f6450-default-rtdb.firebaseio.com/tasks/${newTask.id}.json`, newTask);
   }
 }

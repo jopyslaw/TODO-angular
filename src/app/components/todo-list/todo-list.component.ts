@@ -31,7 +31,13 @@ export class TodoListComponent implements OnInit, OnDestroy {
   }
 
   deleteAll() {
-    this.taskSerivce.deleteTask().subscribe(response => {
+    this.taskSerivce.deleteAllTasks().subscribe(response => {
+      console.log(response);
+    })
+  }
+
+  deleteOneTask(task: Task) {
+    this.taskSerivce.deleteTask(task.id).subscribe(response => {
       console.log(response);
     })
   }
